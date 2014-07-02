@@ -1,0 +1,3 @@
+#name : strcspn ()
+# --
+strcspn(${1:const char *}, ${2:const char *});

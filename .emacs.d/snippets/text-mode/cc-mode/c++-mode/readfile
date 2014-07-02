@@ -1,0 +1,16 @@
+#contributor : zhang_yunlu <luckyzhylu@163.com.com>
+#name : read file into string
+# --
+string sLine;
+ifstream inFile;
+
+inFile.open(${"filename"}, ios_base::in);
+
+if (!inFile.is_open()) {
+   return false;
+}
+
+while (getline(sLine, inFile)) {
+      //using sLine
+}
+inFile.close();

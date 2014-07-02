@@ -1,0 +1,3 @@
+#name : gflags DECLARE a var equal extern FLAGS_big_menu
+# --
+DECLARE_${bool}( ${big_menu} );

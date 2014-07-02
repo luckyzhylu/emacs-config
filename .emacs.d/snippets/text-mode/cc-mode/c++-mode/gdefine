@@ -1,0 +1,3 @@
+#name : gflags DEFINE or DECLARE "bool string"using FLAGS_xxxx
+# --
+DEFINE_${1:bool}(${2:big_menu}, ${3:true}, "${messages}");

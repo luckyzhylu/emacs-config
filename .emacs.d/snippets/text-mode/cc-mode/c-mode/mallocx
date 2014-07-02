@@ -1,0 +1,3 @@
+#name : malloc ()
+# --
+(${2:void *})malloc(${1:size_t size});

@@ -1,0 +1,3 @@
+#name : google glog LOG(ERROR) << << endl;
+# --
+LOG(ERROR) << ${1:"message"} << endl;

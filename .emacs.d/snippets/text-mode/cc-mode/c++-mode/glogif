@@ -1,0 +1,3 @@
+#name : google glog LOG(FATAL) << << endl;
+# --
+LOG_IF(${INFO}, ${:condition like :num_cookies > 10}) << ${"message"};

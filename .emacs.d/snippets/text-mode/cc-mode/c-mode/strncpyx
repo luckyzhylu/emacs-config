@@ -1,0 +1,3 @@
+#name : strncpy ()
+# --
+(${4:char    *})strncpy(${1:char *restrict}, ${2:const char *restrict}, ${3:size_t});

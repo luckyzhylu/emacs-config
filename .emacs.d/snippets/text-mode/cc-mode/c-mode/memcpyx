@@ -1,0 +1,3 @@
+#name : memcpy ()
+# --
+(${4:void    *})memcpy(${1:void *restrict}, ${2:const void *restrict}, ${3:size_t});

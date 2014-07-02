@@ -1,0 +1,16 @@
+#name : read file 
+# --
+FILE *fp = NULL;
+char buf[1024];
+if ((fp = fopen(${"filename"}, "r")) == NULL) {
+	perror("fopen");
+	goto err;
+}
+while(fgets(buf, sizeof(buf), fp)) {
+
+}
+
+fclose(fp);
+return 0;
+err:
+return -1;

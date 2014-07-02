@@ -1,0 +1,4 @@
+#contributor : zhang_yunlu
+#name : xml attr
+# --
+${1:attr}="${2:value}" ${3:}

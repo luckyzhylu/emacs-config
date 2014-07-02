@@ -1,0 +1,3 @@
+#name : calloc ()
+# --
+(${3:void *})calloc(${1:size_t nmemb}, ${2:size_t size});

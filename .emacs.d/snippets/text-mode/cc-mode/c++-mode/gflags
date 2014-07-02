@@ -1,0 +1,4 @@
+#name : gflags init
+# --
+gflags::SetVersionString("v1.0.1 20140608");
+gflags::ParseCommandLineFlags(&argc, &argv, true);

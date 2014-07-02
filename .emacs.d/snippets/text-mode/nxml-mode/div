@@ -1,0 +1,4 @@
+#contributor : Anders Bach Nielsen <abachn@abachn.net>
+#name : <div...>...</div>
+# --
+<${1:div}>$0</$1>

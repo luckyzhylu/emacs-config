@@ -1,0 +1,9 @@
+#name : google glog configure
+# --
+logtostderr(${bool = false});
+//INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively
+stderrthreshold(${int = 2, which is ERROR});
+minloglevel(${int = 0, which is INFO});
+log_dir(${string =""});
+
+FLAGS_minloglevel = 0;

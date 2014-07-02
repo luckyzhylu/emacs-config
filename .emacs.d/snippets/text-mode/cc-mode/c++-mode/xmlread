@@ -1,0 +1,11 @@
+#contributor : zhang_yunlu <luckyzhylu@163.com.com>
+#name : read file into string
+# --
+CConf conf;
+try {
+	conf.LoadXmlFile(path);
+	CNode nodeRoot = conf.GetRootNode();
+	assert(nodeRoot != CNode::NullNode);
+} catch (CError &err) {
+	throw std::logic_error(err.what());
+}

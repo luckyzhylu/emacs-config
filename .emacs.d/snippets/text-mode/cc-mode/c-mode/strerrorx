@@ -1,0 +1,3 @@
+#name : strerror ()
+# --
+(${2:char    *})strerror(${1:int});

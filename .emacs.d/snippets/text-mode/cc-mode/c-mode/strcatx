@@ -1,0 +1,3 @@
+#name : strcat ()
+# --
+(${3:char    *})strcat(${1:char *restrict}, ${2:const char *restrict});

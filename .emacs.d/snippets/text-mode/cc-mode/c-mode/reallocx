@@ -1,0 +1,3 @@
+#name : realloc ()
+# --
+(${3:void *})realloc(${1:void *ptr}, ${2:size_t size});

@@ -1,0 +1,3 @@
+#name : strdup ()
+# --
+(${2:char    *})strdup(${1:const char *});

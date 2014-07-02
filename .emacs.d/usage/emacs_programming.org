@@ -1,0 +1,300 @@
+* 使用emacs编程
+** tabbar使用
+#+begin_tabbar_usage mode
+
+tabbar-backward           (C-c <C-left>)
+tabbar-forward            (C-c <C-right>)
+tabbar-backward-group     (C-c <C-up>)
+tabbar-forward-group      (C-c <C-down>)
+
+tabbar-local-mode         (C-c <C-f10>)
+
+tabbar-press-home         (C-c <C-home>)
+tabbar-press-scroll-left  (C-c <C-prior>)
+tabbar-press-scroll-right (C-c <C-next>)
+
+#+end_tabbar_usage
+
+
+** ido-mode使用
+#+begin_ido-mode mode
+清除 (\c-l)
+#+end_ido-mode
+
+** recent-jump使用(recent-jump.el)
+   #+begin_recent-jump mode
+推荐按键
+(global-set-key (kbd "C-o") 'recent-jump-jump-backward)
+(global-set-key (kbd "M-o") 'recent-jump-jump-forward)
+
+使用按键
+(global-set-key (kbd "<M-S-left>") 'recent-jump-jump-backward)
+(global-set-key (kbd "<M-S-right>") 'recent-jump-jump-forward)
+   #+end_recent-jump
+
+** ace-jump-mode使用(ace-jump-mode.el)
+#+begin_ace-jump mode
+ (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)
+#+end_ace-jump
+
+** bookmark使用(bm.el)
+#+begin_bookmark mode
+  (global-set-key (kbd "<C-f2>") 'bm-toggle)
+  (global-set-key [M-f2] 'bm-toggle)
+  (global-set-key (kbd "ESC <f2>") 'bm-toggle) ; putty
+  (global-set-key (kbd "<f2>")   'bm-next-or-previous)
+  (global-set-key (kbd "<S-f2>") 'bm-previous)
+  (global-set-key [f14] 'bm-previous)   ; S-f2
+  ;; (global-set-key (kbd "ESC ESC <f2>") 'bm-previous)
+  (global-set-key (kbd "<C-S-f2>") 'bm-remove-all-current-buffer)
+  ;; (global-set-key (kbd "<left-fringe> <mouse-1>") 'bm-toggle-mouse)
+  ;; (global-set-key (kbd "<left-fringe> <mouse-2>") 'bm-toggle-mouse)
+  ;; (global-set-key (kbd "<left-fringe> <mouse-3>") 'bm-next-mouse)
+  ;; (global-set-key [left-margin mouse-1] 'bm-toggle-mouse)
+  (global-set-key [left-margin mouse-1] 'bm-toggle-mouse)
+  (global-set-key [left-margin mouse-3] 'bm-next-mouse)
+
+#+end_bookmark
+
+** smart-compile使用(smart-compile.el)
+
+** window-numbering使用(window-numbering.el)
+
+** win-switch使用(win-switch.el)
+
+** psvn使用(psvn.el)
+
+** magit使用(magit.el)
+
+** fci-mode使用(fill-column-indicator.el)
+
+** vimpluse使用(vimpluse.el)
+
+** drag-stuff使用(drag-stuff.el)
+#+begin_drag-stuff mode
+    (define-key map (kbd "<M-up>") 'drag-stuff-up)
+    (define-key map (kbd "<M-down>") 'drag-stuff-down)
+    (define-key map (kbd "<M-right>") 'drag-stuff-right)
+    (define-key map (kbd "<M-left>") 'drag-stuff-left)
+#+end_drag-stuff
+
+** highlights使用(volatile-highlights,highlight-tail,highlight-parentheses,highlight-symbol)
+#+begin_highlight mode
+  (global-set-key [(meta f3)] 'highlight-symbol-at-point)
+  (global-set-key (kbd "ESC <f3>") 'highlight-symbol-at-point) ; putty
+  (global-set-key [f3] 'highlight-symbol-next-or-prev)
+  (global-set-key [(shift f3)] 'highlight-symbol-prev)
+  (global-set-key [f15] 'highlight-symbol-prev) ; S-f3
+  ;; (global-set-key (kbd "ESC ESC <f3>") 'highlight-symbol-prev)
+  (global-set-key [(control f3)] 'highlight-symbol-query-replace))
+#+end_highlight
+
+** mark-multiple使用(mark-multiple.el)
+
+** multi-term使用(multi-term.el)
+
+** dired+使用(dired+.el)
+
+** browse-kill-ring使用
+
+** ifdef使用(ifdef.el,hide-ifdefs,show-ifdefs)
+*** Hide-Ifdef 辅助模式
+  
+在 C mode 或者 C++ mode 下启用 hide-ifdef-mode 可以帮助我们隐藏那些讨厌
+的 #ifdef ... #endif 代码块，使程序更容易阅读。
+  
+当我们阅读源代码的时候，尤其是阅读那些历史很悠久的源代码的时候，经常看到
+其中插入了很多的条件预处理指令，可移植性越强的程序，条件预处理指令就越多，
+这些指令把源文件分割成了很多碎片，阅读时会分散我们的注意力，使我们难于看
+清程序的整体结构。
+  
+`hide-ifdef-mode' 就是用来对付这样的源代码文件的，如果我们打开这个辅助模
+式，就可以把那些条件不成立的代码块隐藏起来，使程序的结构更加清晰。
+  
+**** 条件编译指令的作用
+  
+条件编译指令经常用来处理可移植性问题，比如对于不同的平台使用不同的代码，
+象下面这样：
+  
+#ifdef VMS
+#include <ssdef.h>
+#endif
+  
+#ifdef BSD_SYSTEM
+#include <sys/ioctl.h>
+#endif
+  
+#ifdef WINDOWSNT
+#include <fcntl.h>
+#include <windows.h>
+#endif
+  
+还可以用条件编译指令建立起公共的 C 和 C++ 头文件：
+  
+#ifdef __cplusplus
+namespace std {
+         extern "C" {
+#endif
+  
+char* func_1(char*, const char*);
+int func_2(const char*);
+double func_3(int n);
+  
+#ifdef __cplusplus
+         }
+}
+#endif
+  
+有时候用 #if 0 ... #endif 来注释掉大块代码：
+  
+#if 0
+int obsolete_fonc(int n)
+{
+         return n*n + 1;
+}
+#endif
+  
+这是一种很常用的技巧，在自由软件的源代码中经常出现，采用这种方法进行注释
+恢复起来很方便。
+  
+使用 `hide-ifdef-mode' 可以把那些条件不成立、被预处理器忽略掉的代码块会自
+动隐藏起来，显示成缩略符号(...)，这样代码就会清爽很多，更容易阅读。
+  
+**** 常用命令
+  
+启用 `hide-ifdef-mode' 的命令是：
+  
+`M-x hide-ifdef-mode'
+  
+启用了这个辅助模式之后，就可以用下面两个命令隐藏或显示代码块：
+  
+M-x hide-ifdefs  (或者 C-c @ h) 隐藏代码
+M-x show-ifdefs  (或者 C-c @ s) 显示代码
+  
+需要注意的是 Emacs 并不能主动地根据文件中的 `#define ...' 找出哪那些符号
+是已定义的，哪些符号是为定义的，因此需要我们用下面两个命令手工定义[1]:
+  
+C-c @ d         hide-ifdef-define 定义一个符号
+C-c @ u         hide-ifdef-undef  取消符号定义
+  
+另外，也可以不管符合是否是有定义的，强制隐藏或显示代码块：
+  
+C-c @ C-d       hide-ifdef-block 隐藏一块代码，不论符合是否已定义
+C-c @ C-s       show-ifdef-block 显示隐藏的代码，不论符合是否已定义
+  
+**** 可以设置的变量
+  
+下面几个变量会影响隐藏的方式：
+  
+***** `hide-ifdef-lines'
+如果这个变量的值为真，那么 #if, #ifdef, #ifndef, #else, 和 #endif 这些预
+处理命令本身也会隐藏起来。
+  
+也就是说，如果把这个变量的值设置为真：
+(setq hide-ifdef-lines t)
+那么隐藏的效果是：
+  
+#ifdef WINDOWSNT          |    ...
+#include <fcntl.h>        |    ...
+#include <windows.h>      |    
+#endif                    |  
+  
+如果设置为 nil:
+(setq hide-ifdef-lines nil)
+那么隐藏的效果是：
+  
+#ifdef WINDOWSNT          |   #ifdef WINDOWSNT...    
+#include <fcntl.h>        |   #endif
+#include <windows.h>      |    
+#endif                    |
+  
+***** `hide-ifdef-initially'
+这个变量决定了刚进入 Hide-Ifdef 辅助模式时，是否立即处于隐藏状态，如果这
+个变量的值为 nil，那么进入 Hide-Ifdef 辅助模式以后，需要自己发出
+`hide-ifdefs' (C-c @ h) 命令，才隐藏代码。
+  
+***** `hide-ifdef-read-only'
+如果这个变量的值为 non-nil，那么处于隐藏模式时，buffer会变成只读的，这样
+可以避免误删代码。在只读和非只读状态之间切换可以使用这个命令：
+`hide-ifdef-toggle-read-only' (C-c @ C-q)
+  
+***** `hide-ifdef-env'
+这是个关联链表，其中保存着当前 buffer 中已定义的符号。我们可以利用这个变
+量为定义那些全局的符号，例如，对于linux平台可以定义 GNU_LINUX，对于 C++
+程序可以定义 __cplusplus 等：
+(setq hide-ifdef-env '((GNU_LINUX . t)  
+                        (__GNUC__ . t)
+                        (__cplusplus . t)))
+  
+***** `hide-ifdef-define-alist'
+我们可以事先定义几个链表，每个链表中保存需要定义的符号，例如下面的语句定
+义了两个符号链表 list1 和 list2，然后用 hide-ifdef-use-define-alist 选择
+使用 list2，使 TWO 和 THREE 成为有定义的符号。
+(setq hide-ifdef-define-alist
+                 '((list1 ONE TWO)
+                   (list2 TWO THREE)))
+(hide-ifdef-use-define-alist 'list2) ; use list2 by default
+在工作过程中，我们可以 `hide-ifdef-use-define-alist' (C-c @ U) 命令切换，
+选择使用自己定义的其它链表，比如 list1。
+  
+**** 配置示例
+(add-hook 'hide-ifdef-mode-hook
+      (lambda ()
+          (unless hide-ifdef-define-alist
+            (setq hide-ifdef-define-alist
+                 '((list1 ONE TWO)
+                   (list2 TWO THREE))))
+          (hide-ifdef-use-define-alist 'list2))) ; use list2 by default 
+
+
+** doc-mode/doxymacs-mode使用
+
+** cscope使用(xcscope.el)
+
+** xgtags使用(global使用)
+#+begin_global mode
+http://www.gnu.org/software/global
+
+ (define-key map "\e*" 'xgtags-pop-stack)
+ (define-key map "\e." 'xgtags-find-tag)
+ (define-key map "\e\t" 'xgtags-complete-tag)
+
+(define-key map 'button3 (when flag 'xgtags-pop-stack))
+(define-key map 'button2 (when flag 'xgtags-find-tag-by-event))
+or
+(define-key map [mouse-3] (when flag 'xgtags-pop-stack))
+(define-key map [mouse-2] (when flag 'xgtags-find-tag-by-event))
+
+(define-key keymap "\C-cw" sub-keymap)
+(define-key sub-keymap "d" 'xgtags-find-tag)
+(define-key sub-keymap "c" 'xgtags-find-rtag)
+(define-key sub-keymap "s" 'xgtags-find-symbol)
+(define-key sub-keymap "g" 'xgtags-find-with-grep)
+(define-key sub-keymap "i" 'xgtags-find-with-idutils)
+(define-key sub-keymap "n" 'xgtags-select-next-tag)
+(define-key sub-keymap "p" 'xgtags-select-prev-tag)
+(define-key sub-keymap "\t" 'xgtags-make-complete-list)
+(define-key sub-keymap "u" 'xgtags-pop-stack)
+;;   (define-key sub-keymap "" 'xgtags-find-tag-from-here)
+(define-key sub-keymap "f" 'xgtags-find-file)
+;;   (define-key sub-keymap "" 'xgtags-display-browser)
+(define-key sub-keymap "x" 'xgtags-switch-to-buffer)
+(define-key sub-keymap "\C-x" 'xgtags-switch-to-buffer-other-window)
+(define-key sub-keymap "r" 'xgtags-query-replace-regexp)
+#+end_global
+
+** sourcepair使用
+
+** code-import使用
+
+** undo-tree使用
+
+** yasnippet
+
+
+** auto-complete
+
+
+** company
+

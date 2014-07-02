@@ -1,0 +1,4 @@
+#name : // comment
+#condition: 'force-in-comment
+# --
+// ${1:added} by `user-full-name`, `(format-time-string "%Y-%m-%d")`

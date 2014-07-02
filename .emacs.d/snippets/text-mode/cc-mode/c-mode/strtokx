@@ -1,0 +1,3 @@
+#name : strtok ()
+# --
+(${3:char    *})strtok(${1:char *restrict}, ${2:const char *restrict});

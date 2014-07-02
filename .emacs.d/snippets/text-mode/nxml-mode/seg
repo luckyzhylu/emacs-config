@@ -1,0 +1,4 @@
+#contributor : zhang_yunlu
+#name : <segment>...</segment>
+# --
+<${1:segment}$3>$2</$1>

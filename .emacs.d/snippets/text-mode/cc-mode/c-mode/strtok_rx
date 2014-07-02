@@ -1,0 +1,3 @@
+#name : strtok_r ()
+# --
+(${4:char    *})strtok_r(${1:char *}, ${2:const char *}, ${3:char **});

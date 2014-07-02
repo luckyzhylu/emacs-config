@@ -1,0 +1,10 @@
+/Makefile////*////
+/Makefile.am////*////
+/Makefile.in////*////
+/const.h////*////
+/global////*////
+/global.1////*////
+/global.c////*////
+/literal.c////*////
+/literal.h////*////
+/manual.in////*////

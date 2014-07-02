@@ -1,0 +1,3 @@
+#name : google glog InitGoogleLogging;
+# --
+google::InitGoogleLogging(${1:argv[0]});

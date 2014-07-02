@@ -1,0 +1,10 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("print_responsor.c"
+ (filename . "z:/6011/ENG_SRC/engine/multi-dt/responsor/print_responsor.c")
+ (front-context-string . "\n		}\n		break;\n	d")
+ (rear-context-string . "mac *)data);\n			")
+ (position . 1009))
+)

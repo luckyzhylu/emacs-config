@@ -1,0 +1,3 @@
+#name : memchr ()
+# --
+(${4:void    *})memchr(${1:const void *}, ${2:int}, ${3:size_t});
